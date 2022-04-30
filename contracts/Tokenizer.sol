@@ -22,10 +22,10 @@ contract Tokenizer {
     function registerMusician(string memory _name, address _musicianAddress) public {
         // Require musician to have paid the register fee.
         // Save a musician address into the musicians array.
-        musicians.push(Musician(_name, _musicianAddress))
+        musicians.push(Musician(_name, _musicianAddress));
     }
 
-    function updateRegisterFee() {
+    function updateRegisterFee() public {
         // Only accessible by the owner of this contract.
     }
 }
