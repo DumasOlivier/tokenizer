@@ -28,4 +28,12 @@ contract Tokenizer {
     function updateRegisterFee() public {
         // Only accessible by the owner of this contract.
     }
+
+    function getMusiciansCount() public view returns(uint){
+        return musicians.length;
+    }
+
+    function getMusician(uint256 _index) public view returns(Musician memory){
+        return musicians[_index];
+    }
 }
