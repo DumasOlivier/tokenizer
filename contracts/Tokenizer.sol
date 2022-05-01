@@ -10,7 +10,7 @@ contract Tokenizer {
         string name;
         address wallet;
     }
-    Musician[] musicians;
+    Musician[] public musicians;
     struct Album {
         string title;
         uint16 maxNftSupply;
