@@ -5,35 +5,32 @@ import "hardhat/console.sol";
 
 contract Tokenizer {
     uint16 public constant maxNftSupplyPerAlbum = 10000;
-    string public registerFee = '0.01'; // TODO : This must be updatable by Owner.
+    uint256 public musiciansCounter = 0;
+    string public registerFee = '0.01';
     struct Musician {
         string name;
-        address wallet;
     }
-    Musician[] public musicians;
+    mapping(address => Musician) public addressToMusician;
     struct Album {
         string title;
         uint16 maxNftSupply;
     }
-    mapping(uint256 => Album) public albumToArtist;
+    mapping(uint256 => Album) public albumToMusician;
 
     constructor() {}
 
-    function registerMusician(string memory _name, address _musicianAddress) public {
+    function registerMusician(string memory _name) public {
         // Require musician to have paid the register fee.
         // Save a musician address into the musicians array.
-        musicians.push(Musician(_name, _musicianAddress));
+        addressToMusician[msg.sender] = Musician(_name);
+        musiciansCounter++;
     }
 
     function updateRegisterFee() public {
         // Only accessible by the owner of this contract.
     }
 
-    function getMusiciansCount() public view returns(uint){
-        return musicians.length;
-    }
-
-    function getMusician(uint256 _index) public view returns(Musician memory){
-        return musicians[_index];
+    function getMusician(address _musicianAddress) public view returns(Musician memory){
+        return addressToMusician[_musicianAddress];
     }
 }
