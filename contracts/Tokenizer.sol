@@ -10,20 +10,24 @@ contract Tokenizer {
     struct Musician {
         string name;
     }
-    mapping(address => Musician) public addressToMusician;
+    mapping(address => Musician) public addressToMusicians;
     struct Album {
         string title;
         uint16 maxNftSupply;
     }
     mapping(uint256 => Album) public albumToMusician;
 
+    // Events
+    event RegisterMusician(address indexed _from, string name);
+
     constructor() {}
 
     function registerMusician(string memory _name) public {
-        // Require musician to have paid the register fee.
-        // Save a musician address into the musicians array.
-        addressToMusician[msg.sender] = Musician(_name);
+        require(bytes(addressToMusicians[msg.sender].name).length == 0, "You have already created a musician.");
+        // TODO : Require musician to have paid the register fee.
+        addressToMusicians[msg.sender] = Musician(_name);
         musiciansCounter++;
+        emit RegisterMusician(msg.sender, _name);
     }
 
     function updateRegisterFee() public {
@@ -31,6 +35,6 @@ contract Tokenizer {
     }
 
     function getMusician(address _musicianAddress) public view returns(Musician memory){
-        return addressToMusician[_musicianAddress];
+        return addressToMusicians[_musicianAddress];
     }
 }
