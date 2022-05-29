@@ -13,6 +13,7 @@ contract Tokenizer {
         uint256 albumsCounter;
     }
     mapping(address => Musician) public addressToMusician;
+    address[] public musiciansAddresses;
     struct Album {
         string title;
         uint256 maxNftSupply;
@@ -39,6 +40,7 @@ contract Tokenizer {
         require(bytes(addressToMusician[msg.sender].name).length == 0, "You have already created a musician.");
 
         addressToMusician[msg.sender] = Musician(_name, 0);
+        musiciansAddresses.push(msg.sender);
         musiciansCounter++;
         emit RegisterMusician(msg.sender, _name);
     }
