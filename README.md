@@ -1,15 +1,13 @@
-# Basic Sample Hardhat Project
+# Tokenizer ✨
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+![Readme hero](public/images/reamde_hero.png)
 
-Try running some of the following tasks:
+Side project built to learn Solidity where Musicians can create NFTs for their albums and sell them to their fans.
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+## Fans 😍
+
+It's a way fot the fans to support directly their favorite artists and be part of their community.
+
+## Artists 🦹‍♀️
+
+It's a way for artists to generate more revenues from their music, engage their audience and be able to create special events and offers for their NFTs owners.
