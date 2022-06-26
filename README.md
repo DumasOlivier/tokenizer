@@ -13,3 +13,8 @@ It's a way fot the fans to support directly their favorite artists and be part o
 ## Artists 🦹‍♀️
 
 It's a way for artists to generate more revenues from their music, engage their audience and be able to create special events and offers for their NFTs owners.
+
+@dev.
+// TODO: Create the album page from the front-end
+// Add the albums' metadata to the NFTs from the front-end.
+contracts/Tokenizer.sol.l42

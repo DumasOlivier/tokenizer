@@ -38,7 +38,8 @@ contract Tokenizer is Ownable {
 
         // Deploy the associated NFT contract for this NFT collection.
         address newTokenizerAlbumNFTContract = address(new TokenizerAlbumNFT(msg.sender, _maxNftSupply, albumURI));
-        // TODO: Add the albums' metadata to the NFTs.
+        // TODO: Create the album page from the front-end
+        // Add the albums' metadata to the NFTs from the front-end.
         addressToAlbums[msg.sender].push(Album(_title, _maxNftSupply, newTokenizerAlbumNFTContract));
         emit CreateAlbum(msg.sender, _title, _maxNftSupply, newTokenizerAlbumNFTContract);
     }
