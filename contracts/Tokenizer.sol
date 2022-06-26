@@ -17,6 +17,7 @@ contract Tokenizer {
     struct Album {
         string title;
         uint256 maxNftSupply;
+        // TODO: address nftCollection;
     }
     mapping(address => Album[]) public addressToAlbums;
 
@@ -31,7 +32,7 @@ contract Tokenizer {
         require(_maxNftSupply <= maxNftSupplyPerAlbum);
 
         addressToAlbums[msg.sender].push(Album(_title, _maxNftSupply));
-        addressToMusician[msg.sender].albumsCounter ++;
+        addressToMusician[msg.sender].albumsCounter++;
         albumsCounter++;
         emit CreateAlbum(msg.sender, _title, _maxNftSupply);
     }
