@@ -2,6 +2,8 @@
 
 ![Readme hero](public/images/reamde_hero.png)
 
+[https://tokenizer-front.vercel.app/](https://tokenizer-front.vercel.app/)
+
 Side project built to learn Solidity where Musicians can create NFTs for their albums and sell them to their fans.
 
 ## Fans 😍

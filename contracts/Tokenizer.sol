@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "hardhat/console.sol";
+import "./TokenizerAlbumNFT.sol";
 
 contract Tokenizer is Ownable {
     uint256 public constant maxNftSupplyPerAlbum = 10000;
@@ -18,27 +19,28 @@ contract Tokenizer is Ownable {
     struct Album {
         string title;
         uint256 maxNftSupply;
-        // TODO: address nftCollection;
+        address nftCollection;
     }
     mapping(address => Album[]) public addressToAlbums;
 
     // Events
     event RegisterMusician(address indexed _from, string _name);
-    event CreateAlbum(address indexed _from, string _title, uint256 _maxNftSupply);
+    event CreateAlbum(address indexed _from, string _title, uint256 _maxNftSupply, address newTokenizerAlbumNFTContract);
 
     constructor() {}
 
-    function createAlbum(string memory _title, uint256 _maxNftSupply) public {
+    function createAlbum(string memory _title, uint256 _maxNftSupply, string memory albumURI) public {
         // TODO: Require that the musician is registered.
-        require(bytes(addressToMusician[msg.sender].name).length > 0, "This musician does not exist.")
+        require(bytes(addressToMusician[msg.sender].name).length > 0, "This musician does not exist.");
         require(_maxNftSupply <= maxNftSupplyPerAlbum);
         addressToMusician[msg.sender].albumsCounter++;
         albumsCounter++;
 
-        // TODO: Deploy the associated NFT contract for this NFT collection.
+        // Deploy the associated NFT contract for this NFT collection.
+        address newTokenizerAlbumNFTContract = address(new TokenizerAlbumNFT(msg.sender, _maxNftSupply, albumURI));
         // TODO: Add the albums' metadata to the NFTs.
-        addressToAlbums[msg.sender].push(Album(_title, _maxNftSupply));
-        emit CreateAlbum(msg.sender, _title, _maxNftSupply);
+        addressToAlbums[msg.sender].push(Album(_title, _maxNftSupply, newTokenizerAlbumNFTContract));
+        emit CreateAlbum(msg.sender, _title, _maxNftSupply, newTokenizerAlbumNFTContract);
     }
 
     function registerMusician(string memory _name) public {
