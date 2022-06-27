@@ -1,5 +1,7 @@
 # Tokenizer ✨
 
+Work in progess : This project is still a draft and is not finished yet 🧑‍💻
+
 ![Readme hero](public/images/reamde_hero.png)
 
 [https://tokenizer-front.vercel.app/](https://tokenizer-front.vercel.app/)
