@@ -1,10 +1,15 @@
 # Tokenizer ✨
 
-Work in progess : This project is still a draft and is not finished yet 🧑‍💻
+Side project built to learn Solidity where Musicians can create NFTs for their albums and sell them to their fans.
 
-![Readme hero](public/images/reamde_hero.png)
+Work in progess : I'm buildiThis project is still a draft and is not finished yet 🧑‍💻
+
+- Front-end : Nextjs
+- Back-end : Solidity
 
 [https://tokenizer-front.vercel.app/](https://tokenizer-front.vercel.app/)
+
+![Readme hero](public/images/reamde_hero.png)
 
 Side project built to learn Solidity where Musicians can create NFTs for their albums and sell them to their fans.
 
