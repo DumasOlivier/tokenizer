@@ -2,7 +2,7 @@
 
 Side project built to learn Solidity where Musicians can create NFTs for their albums and sell them to their fans.
 
-Work in progess : I'm buildiThis project is still a draft and is not finished yet 🧑‍💻
+Work in progess : This project is still a draft and is not finished yet 🧑‍💻
 
 - Front-end : Nextjs
 - Back-end : Solidity
